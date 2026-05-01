@@ -11,50 +11,56 @@
       box-sizing: border-box;
     }
 
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
       margin: 0;
       min-height: 100vh;
       font-family: Tahoma, Arial, sans-serif;
+      background: #020712;
       color: white;
       overflow-x: hidden;
-      background: #030815;
     }
 
     .hero {
       position: relative;
       width: 100%;
       min-height: 100vh;
-      padding: 45px 7vw;
+      padding: 48px 7vw;
       display: flex;
       align-items: center;
       justify-content: center;
       overflow: hidden;
       background:
-        radial-gradient(circle at 12% 20%, rgba(83, 156, 255, 0.28), transparent 28%),
-        radial-gradient(circle at 85% 18%, rgba(255, 255, 255, 0.13), transparent 18%),
-        radial-gradient(circle at 50% 95%, rgba(49, 104, 180, 0.28), transparent 32%),
-        linear-gradient(135deg, #030815, #0a1d38 48%, #01040b);
+        radial-gradient(circle at 12% 20%, rgba(72, 150, 255, 0.35), transparent 28%),
+        radial-gradient(circle at 86% 15%, rgba(255, 255, 255, 0.13), transparent 18%),
+        radial-gradient(circle at 50% 100%, rgba(39, 90, 160, 0.3), transparent 34%),
+        linear-gradient(135deg, #020712, #081a34 50%, #00030a);
     }
 
     .hero::before {
       content: "";
       position: absolute;
-      inset: 24px;
-      border: 1.5px solid rgba(255, 255, 255, 0.55);
-      border-radius: 34px;
+      inset: 22px;
+      border: 1.5px solid rgba(255,255,255,0.55);
+      border-radius: 36px;
       pointer-events: none;
-      z-index: 6;
-      box-shadow: inset 0 0 35px rgba(130, 195, 255, 0.16);
+      z-index: 8;
+      box-shadow:
+        inset 0 0 35px rgba(130, 195, 255, 0.18),
+        0 0 20px rgba(130, 195, 255, 0.12);
     }
 
     .hero::after {
       content: "";
       position: absolute;
-      width: 520px;
-      height: 520px;
-      top: -180px;
-      right: -160px;
-      background: radial-gradient(circle, rgba(170, 220, 255, 0.24), transparent 70%);
+      width: 560px;
+      height: 560px;
+      top: -190px;
+      right: -170px;
+      background: radial-gradient(circle, rgba(180, 225, 255, 0.24), transparent 70%);
       animation: glowMove 7s ease-in-out infinite alternate;
       z-index: 1;
     }
@@ -64,7 +70,7 @@
         transform: translate(-30px, 30px) scale(1);
       }
       to {
-        transform: translate(90px, 130px) scale(1.15);
+        transform: translate(100px, 135px) scale(1.18);
       }
     }
 
@@ -90,10 +96,55 @@
       }
     }
 
-    .circuit-layer {
+    .code-rain {
       position: absolute;
       inset: 0;
       z-index: 2;
+      opacity: 0.16;
+      pointer-events: none;
+      background-image:
+        linear-gradient(90deg, transparent 0 96%, rgba(155, 209, 255, 0.35) 96% 100%),
+        linear-gradient(rgba(155, 209, 255, 0.12) 1px, transparent 1px);
+      background-size: 80px 80px, 80px 80px;
+      animation: gridMove 12s linear infinite;
+    }
+
+    @keyframes gridMove {
+      to {
+        background-position: 160px 160px, 160px 160px;
+      }
+    }
+
+    .scan-line {
+      position: absolute;
+      left: 0;
+      top: -20%;
+      width: 100%;
+      height: 130px;
+      background: linear-gradient(
+        to bottom,
+        transparent,
+        rgba(170, 220, 255, 0.09),
+        transparent
+      );
+      z-index: 4;
+      animation: scanMove 6s linear infinite;
+      pointer-events: none;
+    }
+
+    @keyframes scanMove {
+      from {
+        top: -20%;
+      }
+      to {
+        top: 110%;
+      }
+    }
+
+    .circuit-layer {
+      position: absolute;
+      inset: 0;
+      z-index: 3;
       opacity: 0.55;
     }
 
@@ -135,23 +186,22 @@
 
     .content {
       position: relative;
-      z-index: 5;
-      width: min(1180px, 100%);
+      z-index: 7;
+      width: min(1220px, 100%);
       display: grid;
-      grid-template-columns: 1.08fr 1fr;
-      gap: 65px;
+      grid-template-columns: 1.15fr 0.95fr;
+      gap: 60px;
       align-items: center;
     }
 
     .text-side {
-      position: relative;
-      animation: contentEnter 1.2s ease both;
+      animation: contentEnter 1.1s ease both;
     }
 
     @keyframes contentEnter {
       from {
         opacity: 0;
-        transform: translateX(35px);
+        transform: translateX(45px);
       }
       to {
         opacity: 1;
@@ -160,19 +210,31 @@
     }
 
     .eyebrow {
-      display: inline-block;
+      display: inline-flex;
+      gap: 8px;
+      align-items: center;
       color: #a9d5ff;
-      font-size: 17px;
+      font-size: 16px;
       letter-spacing: 4px;
       margin-bottom: 18px;
       direction: ltr;
-      text-shadow: 0 0 14px rgba(169, 213, 255, 0.6);
+      text-shadow: 0 0 14px rgba(169, 213, 255, 0.65);
+    }
+
+    .eyebrow::before {
+      content: "<";
+      color: white;
+    }
+
+    .eyebrow::after {
+      content: "/>";
+      color: white;
     }
 
     .main-title {
       position: relative;
       margin: 0 0 8px;
-      font-size: clamp(52px, 8vw, 112px);
+      font-size: clamp(50px, 8vw, 112px);
       letter-spacing: 8px;
       color: #ffffff;
       direction: ltr;
@@ -207,13 +269,13 @@
     @keyframes titleGlow {
       0%, 100% {
         text-shadow:
-          0 0 10px rgba(255,255,255,0.7),
+          0 0 10px rgba(255,255,255,0.72),
           0 0 25px rgba(120,190,255,0.55);
       }
       50% {
         text-shadow:
           0 0 18px rgba(255,255,255,1),
-          0 0 45px rgba(120,190,255,0.95);
+          0 0 48px rgba(120,190,255,0.95);
       }
     }
 
@@ -221,7 +283,7 @@
       font-size: clamp(19px, 2.5vw, 34px);
       color: #bdd8f7;
       letter-spacing: 4px;
-      margin-bottom: 30px;
+      margin-bottom: 28px;
       direction: ltr;
       text-align: left;
     }
@@ -229,54 +291,186 @@
     .arabic-title {
       font-size: clamp(28px, 4.2vw, 48px);
       color: #ffffff;
-      margin: 20px 0 16px;
+      margin: 18px 0 12px;
       font-weight: bold;
       line-height: 1.4;
     }
 
+    .typing-line {
+      min-height: 36px;
+      color: #9bd1ff;
+      font-size: clamp(17px, 1.7vw, 24px);
+      margin-bottom: 22px;
+      text-shadow: 0 0 14px rgba(155, 209, 255, 0.65);
+    }
+
+    .typing-line span::after {
+      content: "|";
+      margin-right: 5px;
+      color: white;
+      animation: cursorBlink 0.8s infinite;
+    }
+
+    @keyframes cursorBlink {
+      50% {
+        opacity: 0;
+      }
+    }
+
     .description {
-      font-size: clamp(16px, 1.5vw, 21px);
+      font-size: clamp(16px, 1.45vw, 20px);
       line-height: 2;
       color: #dcecff;
-      max-width: 650px;
+      max-width: 670px;
       margin: 0;
     }
 
-    .info-box {
-      margin-top: 34px;
-      padding: 24px 28px;
-      border-radius: 24px;
-      background: rgba(255,255,255,0.08);
-      border: 1px solid rgba(255,255,255,0.24);
-      backdrop-filter: blur(10px);
-      box-shadow:
-        0 18px 45px rgba(0,0,0,0.28),
-        inset 0 0 25px rgba(255,255,255,0.04);
-      animation: infoFloat 4s ease-in-out infinite;
+    .event-cards {
+      margin-top: 30px;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 14px;
     }
 
-    @keyframes infoFloat {
+    .event-card {
+      position: relative;
+      overflow: hidden;
+      padding: 20px 14px;
+      border-radius: 22px;
+      background: rgba(255,255,255,0.075);
+      border: 1px solid rgba(255,255,255,0.22);
+      box-shadow:
+        0 0 22px rgba(120, 190, 255, 0.13),
+        inset 0 0 18px rgba(255,255,255,0.03);
+      text-align: center;
+      transition: 0.3s;
+      animation: cardFloat 4s ease-in-out infinite;
+    }
+
+    .event-card:nth-child(2) {
+      animation-delay: 0.35s;
+    }
+
+    .event-card:nth-child(3) {
+      animation-delay: 0.7s;
+    }
+
+    .event-card:nth-child(4) {
+      animation-delay: 1.05s;
+    }
+
+    .event-card::before {
+      content: "";
+      position: absolute;
+      top: -60%;
+      left: -70%;
+      width: 70%;
+      height: 220%;
+      background: linear-gradient(100deg, transparent, rgba(255,255,255,0.24), transparent);
+      transform: rotate(20deg);
+      animation: cardShine 5s ease-in-out infinite;
+    }
+
+    @keyframes cardShine {
+      0%, 45% {
+        left: -80%;
+      }
+      70%, 100% {
+        left: 130%;
+      }
+    }
+
+    .event-card:hover {
+      transform: translateY(-8px) scale(1.03);
+      box-shadow:
+        0 0 30px rgba(155, 209, 255, 0.34),
+        inset 0 0 20px rgba(255,255,255,0.05);
+    }
+
+    @keyframes cardFloat {
       0%, 100% {
         transform: translateY(0);
       }
       50% {
-        transform: translateY(-6px);
+        transform: translateY(-7px);
       }
     }
 
-    .info-row {
-      margin: 12px 0;
-      font-size: clamp(16px, 1.4vw, 20px);
-      color: #f3f8ff;
+    .event-icon {
+      font-size: 30px;
+      margin-bottom: 10px;
+      animation: iconBounce 2.2s ease-in-out infinite;
     }
 
-    .label {
+    @keyframes iconBounce {
+      50% {
+        transform: translateY(-5px) rotate(4deg);
+      }
+    }
+
+    .event-label {
       color: #9bd1ff;
+      font-size: 14px;
       font-weight: bold;
+      margin-bottom: 7px;
+    }
+
+    .event-value {
+      color: #ffffff;
+      font-size: 15px;
+      line-height: 1.6;
+    }
+
+    .countdown-box {
+      margin-top: 28px;
+      padding: 24px;
+      border-radius: 24px;
+      background: rgba(155, 209, 255, 0.08);
+      border: 1px solid rgba(155, 209, 255, 0.28);
+      box-shadow:
+        0 0 28px rgba(120, 190, 255, 0.18),
+        inset 0 0 24px rgba(255,255,255,0.04);
+      backdrop-filter: blur(10px);
+    }
+
+    .countdown-title {
+      color: #9bd1ff;
+      font-size: 20px;
+      font-weight: bold;
+      margin-bottom: 16px;
+    }
+
+    .countdown {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+    }
+
+    .countdown div {
+      padding: 15px 8px;
+      border-radius: 18px;
+      background: rgba(255,255,255,0.1);
+      border: 1px solid rgba(255,255,255,0.18);
+      text-align: center;
+      box-shadow: 0 0 20px rgba(120,190,255,0.13);
+    }
+
+    .countdown span {
+      display: block;
+      font-size: 30px;
+      font-weight: bold;
+      color: #ffffff;
+      text-shadow: 0 0 14px rgba(255,255,255,0.85);
+    }
+
+    .countdown p {
+      margin: 5px 0 0;
+      color: #cde7ff;
+      font-size: 13px;
     }
 
     .footer {
-      margin-top: 34px;
+      margin-top: 30px;
       color: #a9c4df;
       font-size: 15px;
       letter-spacing: 1.5px;
@@ -285,12 +479,12 @@
     }
 
     .robot-side {
-      height: 560px;
       position: relative;
+      height: 580px;
       display: flex;
       align-items: center;
       justify-content: center;
-      animation: robotEnter 1.4s ease both;
+      animation: robotEnter 1.35s ease both;
     }
 
     @keyframes robotEnter {
@@ -306,8 +500,8 @@
 
     .orbit {
       position: absolute;
-      width: 420px;
-      height: 420px;
+      width: 430px;
+      height: 430px;
       border: 1px solid rgba(255,255,255,0.25);
       border-radius: 50%;
       animation: spin 13s linear infinite;
@@ -319,7 +513,16 @@
       transform: rotate(24deg);
       animation-duration: 9s;
       animation-direction: reverse;
-      opacity: 0.6;
+      opacity: 0.65;
+    }
+
+    .orbit.third {
+      width: 510px;
+      height: 250px;
+      border-radius: 50%;
+      transform: rotate(-18deg);
+      animation-duration: 16s;
+      opacity: 0.32;
     }
 
     .orbit::before,
@@ -334,13 +537,13 @@
     }
 
     .orbit::before {
-      top: 32px;
-      left: 85px;
+      top: 34px;
+      left: 90px;
     }
 
     .orbit::after {
-      bottom: 40px;
-      right: 75px;
+      bottom: 42px;
+      right: 78px;
     }
 
     @keyframes spin {
@@ -350,12 +553,12 @@
     }
 
     .robot {
-      width: 250px;
-      height: 330px;
+      width: 260px;
+      height: 350px;
       position: relative;
       animation: robotDance 2.4s ease-in-out infinite;
-      filter: drop-shadow(0 0 32px rgba(180,220,255,0.55));
-      z-index: 3;
+      filter: drop-shadow(0 0 34px rgba(180,220,255,0.58));
+      z-index: 4;
     }
 
     @keyframes robotDance {
@@ -363,30 +566,30 @@
         transform: rotate(-2deg) translateY(0);
       }
       50% {
-        transform: rotate(2deg) translateY(-14px);
+        transform: rotate(2deg) translateY(-16px);
       }
     }
 
     .antenna {
       width: 6px;
-      height: 45px;
+      height: 46px;
       background: #dcecff;
       margin: 0 auto;
-      border-radius: 5px;
+      border-radius: 6px;
       position: relative;
     }
 
     .antenna::before {
       content: "";
       position: absolute;
-      top: -18px;
+      top: -19px;
       left: 50%;
       transform: translateX(-50%);
-      width: 25px;
-      height: 25px;
+      width: 26px;
+      height: 26px;
       border-radius: 50%;
       background: #ffffff;
-      box-shadow: 0 0 24px #ffffff;
+      box-shadow: 0 0 25px #ffffff;
       animation: antennaBlink 1.15s infinite;
     }
 
@@ -400,35 +603,37 @@
     }
 
     .robot-head {
-      width: 200px;
-      height: 142px;
+      width: 210px;
+      height: 148px;
       margin: 0 auto;
       background: linear-gradient(145deg, #f0f8ff, #95b0d1);
-      border-radius: 36px;
+      border-radius: 38px;
       border: 5px solid #ffffff;
       position: relative;
       box-shadow:
-        0 0 28px rgba(220, 240, 255, 0.9),
+        0 0 30px rgba(220, 240, 255, 0.9),
         inset 0 -12px 25px rgba(20, 55, 90, 0.18);
     }
 
     .eye {
       position: absolute;
-      top: 47px;
-      width: 29px;
-      height: 29px;
+      top: 50px;
+      width: 30px;
+      height: 30px;
       border-radius: 50%;
       background: #0b1b33;
-      box-shadow: 0 0 12px rgba(12, 30, 60, 0.7);
+      box-shadow:
+        0 0 12px rgba(12, 30, 60, 0.7),
+        inset 0 0 6px rgba(155, 209, 255, 0.3);
       animation: eyeBlink 3s infinite;
     }
 
     .eye.left {
-      left: 50px;
+      left: 52px;
     }
 
     .eye.right {
-      right: 50px;
+      right: 52px;
     }
 
     @keyframes eyeBlink {
@@ -442,22 +647,22 @@
 
     .mouth {
       position: absolute;
-      bottom: 31px;
+      bottom: 32px;
       left: 50%;
       transform: translateX(-50%);
-      width: 76px;
-      height: 17px;
+      width: 78px;
+      height: 18px;
       border-bottom: 5px solid #0b1b33;
       border-radius: 0 0 45px 45px;
     }
 
     .robot-body {
-      width: 152px;
-      height: 106px;
-      margin: 13px auto 0;
+      width: 158px;
+      height: 110px;
+      margin: 14px auto 0;
       background: linear-gradient(145deg, #c8ddf5, #6e8fb3);
       border: 5px solid white;
-      border-radius: 28px;
+      border-radius: 30px;
       position: relative;
       box-shadow: inset 0 -12px 22px rgba(20, 55, 90, 0.18);
     }
@@ -466,35 +671,35 @@
     .robot-body::after {
       content: "";
       position: absolute;
-      top: 24px;
-      width: 65px;
-      height: 17px;
+      top: 25px;
+      width: 68px;
+      height: 18px;
       background: #dcecff;
       border-radius: 20px;
       border: 2px solid white;
     }
 
     .robot-body::before {
-      right: 140px;
+      right: 145px;
       transform: rotate(24deg);
       animation: armLeft 1.3s ease-in-out infinite;
     }
 
     .robot-body::after {
-      left: 140px;
+      left: 145px;
       transform: rotate(-24deg);
       animation: armRight 1.3s ease-in-out infinite;
     }
 
     @keyframes armLeft {
       50% {
-        transform: rotate(-20deg) translateY(-5px);
+        transform: rotate(-20deg) translateY(-6px);
       }
     }
 
     @keyframes armRight {
       50% {
-        transform: rotate(20deg) translateY(-5px);
+        transform: rotate(20deg) translateY(-6px);
       }
     }
 
@@ -503,7 +708,7 @@
       width: 18px;
       height: 18px;
       border-radius: 50%;
-      top: 42px;
+      top: 44px;
       left: 50%;
       transform: translateX(-50%);
       background: #ffffff;
@@ -513,16 +718,51 @@
 
     @keyframes bodyLight {
       0%, 100% {
-        opacity: 0.3;
+        opacity: 0.28;
       }
       50% {
         opacity: 1;
       }
     }
 
+    .code-card {
+      position: absolute;
+      bottom: 55px;
+      right: 20px;
+      width: 230px;
+      padding: 16px;
+      border-radius: 18px;
+      background: rgba(0, 10, 25, 0.55);
+      border: 1px solid rgba(155, 209, 255, 0.28);
+      box-shadow: 0 0 24px rgba(120, 190, 255, 0.18);
+      backdrop-filter: blur(8px);
+      direction: ltr;
+      text-align: left;
+      font-family: Consolas, monospace;
+      color: #bfe3ff;
+      font-size: 13px;
+      line-height: 1.7;
+      animation: codeFloat 3.8s ease-in-out infinite;
+      z-index: 5;
+    }
+
+    @keyframes codeFloat {
+      50% {
+        transform: translateY(-10px);
+      }
+    }
+
+    .code-card .green {
+      color: #7effc7;
+    }
+
+    .code-card .blue {
+      color: #8ed1ff;
+    }
+
     .floating-chip {
       position: absolute;
-      z-index: 4;
+      z-index: 5;
       width: 58px;
       height: 58px;
       border-radius: 14px;
@@ -608,7 +848,7 @@
       border-radius: 50%;
       background: white;
       box-shadow: 0 0 14px white;
-      z-index: 5;
+      z-index: 6;
       animation: sparkMove 5s linear infinite;
     }
 
@@ -659,45 +899,14 @@
       }
     }
 
-    .scan-line {
-      position: absolute;
-      left: 0;
-      top: -20%;
-      width: 100%;
-      height: 120px;
-      background: linear-gradient(
-        to bottom,
-        transparent,
-        rgba(170, 220, 255, 0.08),
-        transparent
-      );
-      z-index: 4;
-      animation: scanMove 6s linear infinite;
-      pointer-events: none;
-    }
-
-    @keyframes scanMove {
-      from {
-        top: -20%;
-      }
-      to {
-        top: 110%;
-      }
-    }
-
-    @media (max-width: 900px) {
-      .hero {
-        padding: 52px 24px;
-      }
-
-      .hero::before {
-        inset: 14px;
-        border-radius: 24px;
+    @media (max-width: 1050px) {
+      .event-cards {
+        grid-template-columns: repeat(2, 1fr);
       }
 
       .content {
         grid-template-columns: 1fr;
-        gap: 25px;
+        gap: 28px;
         text-align: center;
       }
 
@@ -707,7 +916,7 @@
 
       .robot-side {
         order: 1;
-        height: 340px;
+        height: 390px;
       }
 
       .main-title,
@@ -716,37 +925,56 @@
         text-align: center;
       }
 
-      .robot {
-        transform: scale(0.72);
-      }
-
-      .orbit {
-        width: 280px;
-        height: 280px;
-      }
-
-      .orbit.second {
-        width: 220px;
-        height: 220px;
-      }
-
       .description {
         margin: 0 auto;
       }
+
+      .code-card {
+        display: none;
+      }
+
+      .robot {
+        scale: 0.76;
+      }
+
+      .orbit {
+        width: 300px;
+        height: 300px;
+      }
+
+      .orbit.second {
+        width: 230px;
+        height: 230px;
+      }
+
+      .orbit.third {
+        width: 350px;
+        height: 170px;
+      }
     }
 
-    @media (max-width: 480px) {
+    @media (max-width: 560px) {
       .hero {
-        padding: 45px 18px;
+        padding: 48px 18px;
+      }
+
+      .hero::before {
+        inset: 12px;
+        border-radius: 24px;
+      }
+
+      .eyebrow {
+        font-size: 13px;
+        letter-spacing: 2px;
       }
 
       .main-title {
-        font-size: 43px;
+        font-size: 42px;
         letter-spacing: 4px;
       }
 
       .sub-title {
-        font-size: 18px;
+        font-size: 17px;
         letter-spacing: 2px;
       }
 
@@ -758,16 +986,47 @@
         font-size: 15px;
       }
 
-      .info-box {
-        padding: 18px;
+      .event-cards {
+        grid-template-columns: 1fr;
+      }
+
+      .countdown {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .countdown span {
+        font-size: 26px;
       }
 
       .robot-side {
-        height: 310px;
+        height: 320px;
       }
 
       .robot {
-        scale: 0.72;
+        scale: 0.65;
+      }
+
+      .orbit {
+        width: 250px;
+        height: 250px;
+      }
+
+      .orbit.second {
+        width: 190px;
+        height: 190px;
+      }
+
+      .orbit.third {
+        display: none;
+      }
+
+      .floating-chip {
+        width: 44px;
+        height: 44px;
+      }
+
+      .footer {
+        font-size: 12px;
       }
     }
   </style>
@@ -778,6 +1037,7 @@
   <section class="hero">
 
     <div class="stars-layer"></div>
+    <div class="code-rain"></div>
     <div class="scan-line"></div>
 
     <div class="circuit-layer">
@@ -842,6 +1102,7 @@
     <div class="content">
 
       <div class="text-side">
+
         <div class="eyebrow">SMART PROJECTS SHOWCASE</div>
 
         <h1 class="main-title">ARDUINO</h1>
@@ -849,42 +1110,79 @@
 
         <div class="arabic-title">معرض الأردوينو والروبوتك</div>
 
+        <div class="typing-line">
+          <span id="typingText"></span>
+        </div>
+
         <p class="description">
           نتشرف بدعوتكم لحضور معرضنا التقني، حيث نعرض مشاريع مميزة
           في عالم الأردوينو، الروبوتات، البرمجة، الحساسات الذكية،
           والتحكم الإلكتروني.
         </p>
 
-        <div class="info-box">
-          <div class="info-row">
-            <span class="label">التاريخ:</span>
-            الخميس 10 / 5 / 2026
+        <div class="event-cards">
+          <div class="event-card">
+            <div class="event-icon">📅</div>
+            <div class="event-label">التاريخ</div>
+            <div class="event-value">الخميس<br>10 / 5 / 2026</div>
           </div>
 
-          <div class="info-row">
-            <span class="label">الوقت:</span>
-            الساعة 10:00 صباحاً
+          <div class="event-card">
+            <div class="event-icon">⏰</div>
+            <div class="event-label">الوقت</div>
+            <div class="event-value">10:00<br>صباحاً</div>
           </div>
 
-          <div class="info-row">
-            <span class="label">المكان:</span>
-            مختبر الروبوتك
+          <div class="event-card">
+            <div class="event-icon">📍</div>
+            <div class="event-label">المكان</div>
+            <div class="event-value">مختبر<br>الروبوتك</div>
           </div>
 
-          <div class="info-row">
-            <span class="label">الدعوة:</span>
-            عامة للطلاب والمعلمات
+          <div class="event-card">
+            <div class="event-icon">🤖</div>
+            <div class="event-label">المعرض</div>
+            <div class="event-value">Arduino<br>Robotics</div>
+          </div>
+        </div>
+
+        <div class="countdown-box">
+          <div class="countdown-title">العد التنازلي للمعرض</div>
+
+          <div class="countdown">
+            <div>
+              <span id="days">00</span>
+              <p>يوم</p>
+            </div>
+
+            <div>
+              <span id="hours">00</span>
+              <p>ساعة</p>
+            </div>
+
+            <div>
+              <span id="minutes">00</span>
+              <p>دقيقة</p>
+            </div>
+
+            <div>
+              <span id="seconds">00</span>
+              <p>ثانية</p>
+            </div>
           </div>
         </div>
 
         <div class="footer">
           Arduino • Robotics • Sensors • Coding • Innovation
         </div>
+
       </div>
 
       <div class="robot-side">
+
         <div class="orbit"></div>
         <div class="orbit second"></div>
+        <div class="orbit third"></div>
 
         <div class="robot">
           <div class="antenna"></div>
@@ -899,10 +1197,90 @@
             <div class="body-light"></div>
           </div>
         </div>
+
+        <div class="code-card">
+          <div><span class="blue">void</span> setup() {</div>
+          <div>&nbsp;&nbsp;<span class="green">robot.start</span>();</div>
+          <div>}</div>
+          <div><span class="blue">void</span> loop() {</div>
+          <div>&nbsp;&nbsp;<span class="green">innovation.run</span>();</div>
+          <div>}</div>
+        </div>
+
       </div>
 
     </div>
   </section>
+
+  <script>
+    const sentences = [
+      "اكتشفوا معنا عالم الروبوتات والابتكار",
+      "مشاريع ذكية بأفكار طلابية مميزة",
+      "Arduino • Sensors • Robotics • Coding",
+      "رحلة تقنية مليئة بالإبداع والتجارب"
+    ];
+
+    const typingElement = document.getElementById("typingText");
+    let sentenceIndex = 0;
+    let charIndex = 0;
+    let deleting = false;
+
+    function typeLoop() {
+      const currentSentence = sentences[sentenceIndex];
+
+      if (!deleting) {
+        typingElement.textContent = currentSentence.substring(0, charIndex + 1);
+        charIndex++;
+
+        if (charIndex === currentSentence.length) {
+          deleting = true;
+          setTimeout(typeLoop, 1400);
+          return;
+        }
+      } else {
+        typingElement.textContent = currentSentence.substring(0, charIndex - 1);
+        charIndex--;
+
+        if (charIndex === 0) {
+          deleting = false;
+          sentenceIndex = (sentenceIndex + 1) % sentences.length;
+        }
+      }
+
+      setTimeout(typeLoop, deleting ? 45 : 85);
+    }
+
+    typeLoop();
+
+    const eventDate = new Date("2026-05-10T10:00:00").getTime();
+
+    function updateCountdown() {
+      const now = new Date().getTime();
+      const distance = eventDate - now;
+
+      if (distance <= 0) {
+        document.querySelector(".countdown-title").textContent = "بدأ المعرض الآن!";
+        document.getElementById("days").textContent = "00";
+        document.getElementById("hours").textContent = "00";
+        document.getElementById("minutes").textContent = "00";
+        document.getElementById("seconds").textContent = "00";
+        return;
+      }
+
+      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((distance / (1000 * 60 * 60)) % 24);
+      const minutes = Math.floor((distance / (1000 * 60)) % 60);
+      const seconds = Math.floor((distance / 1000) % 60);
+
+      document.getElementById("days").textContent = String(days).padStart(2, "0");
+      document.getElementById("hours").textContent = String(hours).padStart(2, "0");
+      document.getElementById("minutes").textContent = String(minutes).padStart(2, "0");
+      document.getElementById("seconds").textContent = String(seconds).padStart(2, "0");
+    }
+
+    updateCountdown();
+    setInterval(updateCountdown, 1000);
+  </script>
 
 </body>
 </html>
