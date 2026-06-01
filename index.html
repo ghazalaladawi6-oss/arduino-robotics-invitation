@@ -19,6 +19,7 @@
       overflow-x: hidden;
     }
 
+    /* ===== HERO ===== */
     .hero {
       position: relative;
       width: 100%;
@@ -36,7 +37,6 @@
         linear-gradient(135deg, #010d1a, #011826 50%, #010f20);
     }
 
-    /* Glowing border — blue */
     .hero::before {
       content: "";
       position: absolute;
@@ -50,7 +50,6 @@
         0 0 28px rgba(20, 120, 240, 0.12);
     }
 
-    /* Top-right glow orb — blue */
     .hero::after {
       content: "";
       position: absolute;
@@ -68,7 +67,6 @@
       to   { transform: translate(100px, 135px) scale(1.18); }
     }
 
-    /* Stars */
     .stars-layer {
       position: absolute;
       inset: 0;
@@ -87,7 +85,6 @@
       to   { background-position: 100px 140px, -130px 90px, 160px -110px; }
     }
 
-    /* Grid */
     .code-rain {
       position: absolute;
       inset: 0;
@@ -120,7 +117,6 @@
       to   { top: 110%; }
     }
 
-    /* Circuit lines */
     .circuit-layer {
       position: absolute;
       inset: 0;
@@ -151,7 +147,6 @@
       50%       { opacity: 1;    transform: scale(1.4); }
     }
 
-    /* Layout */
     .content {
       position: relative;
       z-index: 7;
@@ -169,7 +164,6 @@
       to   { opacity: 1; transform: translateX(0); }
     }
 
-    /* Eyebrow */
     .eyebrow {
       display: inline-flex;
       gap: 8px;
@@ -185,7 +179,6 @@
     .eyebrow::before { content: "<";  color: rgba(50,140,255,0.6); }
     .eyebrow::after  { content: "/>"; color: rgba(50,140,255,0.6); }
 
-    /* Main title */
     .main-title {
       position: relative;
       margin: 0 0 8px;
@@ -277,7 +270,6 @@
       margin: 0;
     }
 
-    /* Event cards */
     .event-cards {
       margin-top: 30px;
       display: grid;
@@ -355,7 +347,6 @@
       line-height: 1.7;
     }
 
-    /* Countdown */
     .countdown-box {
       margin-top: 28px;
       padding: 24px;
@@ -415,7 +406,6 @@
       font-family: 'Orbitron', sans-serif;
     }
 
-    /* Robot side */
     .robot-side {
       position: relative;
       height: 580px;
@@ -614,7 +604,6 @@
       50%      { opacity: 1; }
     }
 
-    /* Code card */
     .code-card {
       position: absolute;
       bottom: 55px;
@@ -641,7 +630,6 @@
     .code-card .green { color: #4da6ff; }
     .code-card .blue  { color: #80c8ff; }
 
-    /* Floating chips */
     .floating-chip {
       position: absolute;
       z-index: 5;
@@ -673,7 +661,6 @@
     @keyframes chipFloat3 { 50% { transform: translateY(-22px) rotate( -8deg); } }
     @keyframes chipFloat4 { 50% { transform: translateY( 20px) rotate( 12deg); } }
 
-    /* Sparks */
     .spark {
       position: absolute;
       width: 7px;
@@ -698,6 +685,338 @@
       100% { opacity: 0; transform: translateY(-65px) scale(0.25); }
     }
 
+    /* ===== PROJECTS SECTION ===== */
+    .projects-section {
+      position: relative;
+      width: 100%;
+      padding: 80px 7vw 100px;
+      background:
+        radial-gradient(circle at 20% 50%, rgba(0, 60, 140, 0.2), transparent 40%),
+        radial-gradient(circle at 80% 30%, rgba(20, 100, 200, 0.15), transparent 35%),
+        linear-gradient(180deg, #010f20, #011020 50%, #010c18);
+      overflow: hidden;
+    }
+
+    /* Divider line between hero and projects */
+    .projects-section::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 7vw;
+      right: 7vw;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(50,140,255,0.5), rgba(80,170,255,0.8), rgba(50,140,255,0.5), transparent);
+      box-shadow: 0 0 20px rgba(50,140,255,0.4);
+    }
+
+    /* BG grid for projects */
+    .projects-section .bg-grid {
+      position: absolute;
+      inset: 0;
+      opacity: 0.07;
+      pointer-events: none;
+      background-image:
+        linear-gradient(rgba(30,140,255,0.4) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(30,140,255,0.4) 1px, transparent 1px);
+      background-size: 60px 60px;
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 60px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .section-eyebrow {
+      display: inline-flex;
+      gap: 8px;
+      align-items: center;
+      color: #4da6ff;
+      font-size: 13px;
+      letter-spacing: 5px;
+      margin-bottom: 16px;
+      direction: ltr;
+      text-shadow: 0 0 14px rgba(50, 140, 255, 0.7);
+    }
+    .section-eyebrow::before { content: "<"; color: rgba(50,140,255,0.5); }
+    .section-eyebrow::after  { content: "/>"; color: rgba(50,140,255,0.5); }
+
+    .section-title {
+      font-family: 'Orbitron', sans-serif;
+      font-size: clamp(22px, 3.5vw, 42px);
+      color: #fff;
+      margin: 0 0 10px;
+      letter-spacing: 3px;
+      text-shadow: 0 0 30px rgba(30,120,255,0.6);
+    }
+
+    .section-title-ar {
+      font-size: clamp(18px, 2.5vw, 28px);
+      color: rgba(150, 200, 255, 0.85);
+      margin: 0;
+      font-weight: normal;
+    }
+
+    .section-line {
+      width: 120px;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, #3d9eff, transparent);
+      margin: 20px auto 0;
+      box-shadow: 0 0 12px rgba(60,150,255,0.6);
+    }
+
+    /* Projects grid */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 22px;
+      position: relative;
+      z-index: 2;
+      max-width: 1220px;
+      margin: 0 auto;
+    }
+
+    /* Last row: 3 cards centered */
+    .projects-grid .project-card:nth-child(5),
+    .projects-grid .project-card:nth-child(6),
+    .projects-grid .project-card:nth-child(7) {
+      grid-column: auto;
+    }
+
+    /* Center the last 3 cards */
+    .projects-grid-bottom {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+      max-width: 900px;
+      margin: 22px auto 0;
+      position: relative;
+      z-index: 2;
+    }
+
+    .project-card {
+      position: relative;
+      overflow: hidden;
+      border-radius: 26px;
+      background: rgba(8, 35, 75, 0.45);
+      border: 1px solid rgba(40, 120, 220, 0.28);
+      padding: 32px 22px 26px;
+      text-align: center;
+      cursor: pointer;
+      transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.4s ease, border-color 0.4s ease;
+      backdrop-filter: blur(8px);
+      box-shadow:
+        0 4px 30px rgba(0, 30, 80, 0.4),
+        inset 0 1px 0 rgba(80, 160, 255, 0.08);
+    }
+
+    /* Staggered entrance animation */
+    .project-card { animation: cardEntrance 0.7s ease both; }
+    .project-card:nth-child(1) { animation-delay: 0.05s; }
+    .project-card:nth-child(2) { animation-delay: 0.15s; }
+    .project-card:nth-child(3) { animation-delay: 0.25s; }
+    .project-card:nth-child(4) { animation-delay: 0.35s; }
+    .projects-grid-bottom .project-card:nth-child(1) { animation-delay: 0.45s; }
+    .projects-grid-bottom .project-card:nth-child(2) { animation-delay: 0.55s; }
+    .projects-grid-bottom .project-card:nth-child(3) { animation-delay: 0.65s; }
+
+    @keyframes cardEntrance {
+      from { opacity: 0; transform: translateY(30px) scale(0.95); }
+      to   { opacity: 1; transform: translateY(0) scale(1); }
+    }
+
+    /* Top glow bar per card */
+    .project-card::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 10%;
+      right: 10%;
+      height: 2px;
+      border-radius: 0 0 4px 4px;
+      background: var(--card-accent, #3d9eff);
+      opacity: 0.7;
+      box-shadow: 0 0 14px var(--card-accent, #3d9eff);
+      transition: opacity 0.3s, left 0.3s, right 0.3s;
+    }
+
+    /* Shine sweep */
+    .project-card::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 60%;
+      height: 100%;
+      background: linear-gradient(110deg, transparent, rgba(255,255,255,0.05), transparent);
+      transition: left 0.6s ease;
+    }
+
+    .project-card:hover::after { left: 150%; }
+
+    .project-card:hover {
+      transform: translateY(-12px) scale(1.03);
+      border-color: var(--card-accent, #3d9eff);
+      box-shadow:
+        0 20px 50px rgba(0, 30, 80, 0.6),
+        0 0 30px rgba(30, 120, 255, 0.2),
+        inset 0 1px 0 rgba(80, 160, 255, 0.15);
+    }
+
+    .project-card:hover::before {
+      left: 0%;
+      right: 0%;
+      opacity: 1;
+    }
+
+    /* Icon wrapper */
+    .proj-icon-wrap {
+      width: 80px;
+      height: 80px;
+      border-radius: 22px;
+      margin: 0 auto 18px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(20, 70, 150, 0.25);
+      border: 1px solid rgba(50, 140, 255, 0.3);
+      position: relative;
+      transition: transform 0.3s, box-shadow 0.3s;
+      box-shadow: 0 0 20px rgba(30, 100, 220, 0.15);
+    }
+
+    .project-card:hover .proj-icon-wrap {
+      transform: scale(1.1) rotate(-5deg);
+      box-shadow: 0 0 30px var(--card-accent, #3d9eff);
+    }
+
+    .proj-icon-wrap .icon-glow {
+      position: absolute;
+      inset: -4px;
+      border-radius: 26px;
+      opacity: 0;
+      transition: opacity 0.3s;
+      background: radial-gradient(circle, var(--card-accent, #3d9eff) 0%, transparent 70%);
+    }
+
+    .project-card:hover .proj-icon-wrap .icon-glow { opacity: 0.2; }
+
+    .proj-icon {
+      font-size: 36px;
+      position: relative;
+      z-index: 1;
+      animation: iconFloat 3s ease-in-out infinite;
+    }
+
+    @keyframes iconFloat {
+      0%, 100% { transform: translateY(0); }
+      50%       { transform: translateY(-5px); }
+    }
+
+    .project-card:nth-child(2) .proj-icon { animation-delay: 0.4s; }
+    .project-card:nth-child(3) .proj-icon { animation-delay: 0.8s; }
+    .project-card:nth-child(4) .proj-icon { animation-delay: 1.2s; }
+
+    .proj-title-en {
+      font-family: 'Orbitron', sans-serif;
+      font-size: clamp(11px, 1.1vw, 14px);
+      letter-spacing: 2px;
+      color: var(--card-accent, #4da6ff);
+      margin-bottom: 6px;
+      text-shadow: 0 0 10px var(--card-accent, #4da6ff);
+    }
+
+    .proj-title-ar {
+      font-size: clamp(17px, 1.6vw, 21px);
+      font-weight: bold;
+      color: #ffffff;
+      margin-bottom: 12px;
+      line-height: 1.3;
+    }
+
+    .proj-desc {
+      font-size: clamp(12px, 1vw, 14px);
+      color: rgba(160, 200, 240, 0.8);
+      line-height: 1.8;
+    }
+
+    /* Tag chips */
+    .proj-tags {
+      margin-top: 14px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      justify-content: center;
+    }
+
+    .proj-tag {
+      font-size: 10px;
+      padding: 3px 10px;
+      border-radius: 20px;
+      border: 1px solid rgba(50, 140, 255, 0.35);
+      color: rgba(100, 170, 255, 0.85);
+      background: rgba(20, 80, 180, 0.15);
+      letter-spacing: 1px;
+      direction: ltr;
+    }
+
+    /* Number badge */
+    .proj-number {
+      position: absolute;
+      top: 14px;
+      left: 16px;
+      font-family: 'Orbitron', sans-serif;
+      font-size: 11px;
+      color: rgba(50, 140, 255, 0.45);
+      letter-spacing: 1px;
+    }
+
+    /* Status dot */
+    .proj-status {
+      position: absolute;
+      top: 16px;
+      right: 16px;
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      background: #3dff9e;
+      box-shadow: 0 0 10px #3dff9e;
+      animation: statusPulse 2s ease-in-out infinite;
+    }
+
+    @keyframes statusPulse {
+      0%, 100% { opacity: 0.5; transform: scale(1); }
+      50%       { opacity: 1; transform: scale(1.4); }
+    }
+
+    /* Bottom CTA */
+    .projects-footer {
+      text-align: center;
+      margin-top: 60px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .projects-footer p {
+      color: rgba(100, 160, 220, 0.7);
+      font-size: 15px;
+      margin-bottom: 6px;
+    }
+
+    .projects-footer .count-badge {
+      display: inline-block;
+      font-family: 'Orbitron', sans-serif;
+      font-size: 13px;
+      color: #4da6ff;
+      border: 1px solid rgba(50,140,255,0.35);
+      padding: 8px 28px;
+      border-radius: 40px;
+      letter-spacing: 3px;
+      background: rgba(20,80,180,0.1);
+      box-shadow: 0 0 20px rgba(30,100,220,0.15);
+    }
+
     /* Responsive */
     @media (max-width: 1050px) {
       .event-cards { grid-template-columns: repeat(2, 1fr); }
@@ -715,6 +1034,8 @@
       .orbit        { width: 300px; height: 300px; }
       .orbit.second { width: 230px; height: 230px; }
       .orbit.third  { width: 350px; height: 170px; }
+      .projects-grid { grid-template-columns: repeat(2, 1fr); }
+      .projects-grid-bottom { grid-template-columns: repeat(2, 1fr); max-width: 600px; }
     }
 
     @media (max-width: 560px) {
@@ -735,6 +1056,9 @@
       .orbit.third  { display: none; }
       .floating-chip { width: 44px; height: 44px; }
       .footer { font-size: 11px; }
+      .projects-section { padding: 60px 18px 80px; }
+      .projects-grid { grid-template-columns: 1fr; }
+      .projects-grid-bottom { grid-template-columns: 1fr; max-width: 100%; }
     }
   </style>
 </head>
@@ -902,6 +1226,152 @@
 
       </div>
 
+    </div>
+  </section>
+
+  <!-- ===== PROJECTS SECTION ===== -->
+  <section class="projects-section">
+    <div class="bg-grid"></div>
+
+    <div class="section-header">
+      <div class="section-eyebrow">OUR PROJECTS</div>
+      <h2 class="section-title">SMART PROJECTS</h2>
+      <p class="section-title-ar">مشاريع المعرض</p>
+      <div class="section-line"></div>
+    </div>
+
+    <!-- Row 1: 4 cards -->
+    <div class="projects-grid">
+
+      <div class="project-card" style="--card-accent: #3d9eff;">
+        <div class="proj-number">01</div>
+        <div class="proj-status"></div>
+        <div class="proj-icon-wrap">
+          <div class="icon-glow"></div>
+          <div class="proj-icon">🏠</div>
+        </div>
+        <div class="proj-title-en">SMART HOME</div>
+        <div class="proj-title-ar">البيت الذكي</div>
+        <div class="proj-desc">نظام تحكم متكامل بالإضاءة، الأجهزة، والأمان عن بُعد باستخدام حساسات ذكية</div>
+        <div class="proj-tags">
+          <span class="proj-tag">IoT</span>
+          <span class="proj-tag">Sensors</span>
+          <span class="proj-tag">Automation</span>
+        </div>
+      </div>
+
+      <div class="project-card" style="--card-accent: #ff6b3d;">
+        <div class="proj-number">02</div>
+        <div class="proj-status" style="background:#ff9f3d; box-shadow:0 0 10px #ff9f3d;"></div>
+        <div class="proj-icon-wrap" style="border-color:rgba(255,107,61,0.35); background:rgba(150,50,20,0.2);">
+          <div class="icon-glow"></div>
+          <div class="proj-icon">🚗</div>
+        </div>
+        <div class="proj-title-en" style="color:#ff9f6b; text-shadow:0 0 10px #ff6b3d;">SMART CAR</div>
+        <div class="proj-title-ar">السيارة الذكية</div>
+        <div class="proj-desc">سيارة روبوتية ذاتية القيادة بحساسات تجنب العوائق والتحكم اللاسلكي</div>
+        <div class="proj-tags">
+          <span class="proj-tag" style="border-color:rgba(255,107,61,0.4); color:rgba(255,160,120,0.85);">Ultrasonic</span>
+          <span class="proj-tag" style="border-color:rgba(255,107,61,0.4); color:rgba(255,160,120,0.85);">Bluetooth</span>
+          <span class="proj-tag" style="border-color:rgba(255,107,61,0.4); color:rgba(255,160,120,0.85);">Motors</span>
+        </div>
+      </div>
+
+      <div class="project-card" style="--card-accent: #3dffe0;">
+        <div class="proj-number">03</div>
+        <div class="proj-status" style="background:#3dffe0; box-shadow:0 0 10px #3dffe0;"></div>
+        <div class="proj-icon-wrap" style="border-color:rgba(61,255,224,0.35); background:rgba(10,100,90,0.2);">
+          <div class="icon-glow"></div>
+          <div class="proj-icon">🪞</div>
+        </div>
+        <div class="proj-title-en" style="color:#3dffe0; text-shadow:0 0 10px #3dffe0;">SMART MIRROR</div>
+        <div class="proj-title-ar">المرآة الذكية</div>
+        <div class="proj-desc">مرآة تفاعلية تعرض الوقت، الطقس، والإشعارات الذكية على شاشة مدمجة</div>
+        <div class="proj-tags">
+          <span class="proj-tag" style="border-color:rgba(61,255,224,0.4); color:rgba(100,255,230,0.85);">Display</span>
+          <span class="proj-tag" style="border-color:rgba(61,255,224,0.4); color:rgba(100,255,230,0.85);">Raspberry Pi</span>
+          <span class="proj-tag" style="border-color:rgba(61,255,224,0.4); color:rgba(100,255,230,0.85);">Python</span>
+        </div>
+      </div>
+
+      <div class="project-card" style="--card-accent: #bf3dff;">
+        <div class="proj-number">04</div>
+        <div class="proj-status" style="background:#bf3dff; box-shadow:0 0 10px #bf3dff;"></div>
+        <div class="proj-icon-wrap" style="border-color:rgba(191,61,255,0.35); background:rgba(80,10,120,0.2);">
+          <div class="icon-glow"></div>
+          <div class="proj-icon">🦾</div>
+        </div>
+        <div class="proj-title-en" style="color:#d07fff; text-shadow:0 0 10px #bf3dff;">ROBOTIC ARM</div>
+        <div class="proj-title-ar">الذراع الروبوتية</div>
+        <div class="proj-desc">ذراع آلية متعددة المحاور تحاكي حركة يد الإنسان بدقة عالية وتحكم سلس</div>
+        <div class="proj-tags">
+          <span class="proj-tag" style="border-color:rgba(191,61,255,0.4); color:rgba(200,130,255,0.85);">Servo</span>
+          <span class="proj-tag" style="border-color:rgba(191,61,255,0.4); color:rgba(200,130,255,0.85);">DOF</span>
+          <span class="proj-tag" style="border-color:rgba(191,61,255,0.4); color:rgba(200,130,255,0.85);">PWM</span>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Row 2: 3 cards centered -->
+    <div class="projects-grid-bottom">
+
+      <div class="project-card" style="--card-accent: #ffd93d;">
+        <div class="proj-number">05</div>
+        <div class="proj-status" style="background:#ffd93d; box-shadow:0 0 10px #ffd93d;"></div>
+        <div class="proj-icon-wrap" style="border-color:rgba(255,217,61,0.35); background:rgba(100,70,0,0.2);">
+          <div class="icon-glow"></div>
+          <div class="proj-icon">🔒</div>
+        </div>
+        <div class="proj-title-en" style="color:#ffd93d; text-shadow:0 0 10px #ffd93d;">SMART LOCK</div>
+        <div class="proj-title-ar">القفل الذكي</div>
+        <div class="proj-desc">نظام قفل إلكتروني بالبصمة وكلمة المرور مع تنبيهات أمنية فورية</div>
+        <div class="proj-tags">
+          <span class="proj-tag" style="border-color:rgba(255,217,61,0.4); color:rgba(255,230,120,0.85);">Fingerprint</span>
+          <span class="proj-tag" style="border-color:rgba(255,217,61,0.4); color:rgba(255,230,120,0.85);">RFID</span>
+          <span class="proj-tag" style="border-color:rgba(255,217,61,0.4); color:rgba(255,230,120,0.85);">Security</span>
+        </div>
+      </div>
+
+      <div class="project-card" style="--card-accent: #ff3d77;">
+        <div class="proj-number">06</div>
+        <div class="proj-status" style="background:#ff3d77; box-shadow:0 0 10px #ff3d77;"></div>
+        <div class="proj-icon-wrap" style="border-color:rgba(255,61,119,0.35); background:rgba(120,10,50,0.2);">
+          <div class="icon-glow"></div>
+          <div class="proj-icon">🌡️</div>
+        </div>
+        <div class="proj-title-en" style="color:#ff6b99; text-shadow:0 0 10px #ff3d77;">SMART TEMP CONTROL</div>
+        <div class="proj-title-ar">التحكم الذكي بالحرارة</div>
+        <div class="proj-desc">نظام ذكي لمراقبة وضبط درجة الحرارة تلقائياً مع واجهة عرض رقمية</div>
+        <div class="proj-tags">
+          <span class="proj-tag" style="border-color:rgba(255,61,119,0.4); color:rgba(255,130,160,0.85);">DHT22</span>
+          <span class="proj-tag" style="border-color:rgba(255,61,119,0.4); color:rgba(255,130,160,0.85);">LCD</span>
+          <span class="proj-tag" style="border-color:rgba(255,61,119,0.4); color:rgba(255,130,160,0.85);">PID</span>
+        </div>
+      </div>
+
+      <div class="project-card" style="--card-accent: #3dff8f;">
+        <div class="proj-number">07</div>
+        <div class="proj-status" style="background:#3dff8f; box-shadow:0 0 10px #3dff8f;"></div>
+        <div class="proj-icon-wrap" style="border-color:rgba(61,255,143,0.35); background:rgba(10,80,40,0.2);">
+          <div class="icon-glow"></div>
+          <div class="proj-icon">🅿️</div>
+        </div>
+        <div class="proj-title-en" style="color:#3dff8f; text-shadow:0 0 10px #3dff8f;">SMART PARKING</div>
+        <div class="proj-title-ar">موقف السيارات الذكي</div>
+        <div class="proj-desc">نظام إدارة مواقف ذكي يكشف الأماكن الفارغة ويوجّه السائقين تلقائياً</div>
+        <div class="proj-tags">
+          <span class="proj-tag" style="border-color:rgba(61,255,143,0.4); color:rgba(100,255,170,0.85);">IR Sensor</span>
+          <span class="proj-tag" style="border-color:rgba(61,255,143,0.4); color:rgba(100,255,170,0.85);">LED Matrix</span>
+          <span class="proj-tag" style="border-color:rgba(61,255,143,0.4); color:rgba(100,255,170,0.85);">Servo</span>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="projects-footer">
+      <p>جميع المشاريع مبنية بـ Arduino وتقنيات متقدمة</p>
+      <div class="count-badge">7 SMART PROJECTS</div>
     </div>
   </section>
 
